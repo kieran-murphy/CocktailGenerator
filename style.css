@@ -20,12 +20,16 @@ section {
     scroll-snap-align: start;
 }
 
+a {
+    color: white;
+}
+
 .one {
-    background: lightsteelblue;
+    background: lightseagreen;
 }
 
 .two {
-    background: lightpink;
+    background: lightcoral;
 }
 
 .three {
@@ -34,4 +38,28 @@ section {
 
 .four {
     background: lightsalmon;
+}
+
+.five {
+    background: turquoise;
+}
+
+.six {
+    background: lightcoral;
+}
+
+.seven {
+    background: lightpink;
+}
+
+.eight {
+    background: lightsteelblue;
+}
+
+.nine {
+    background: lightgreen;
+}
+
+.ten {
+    background: lightseagreen;
 }

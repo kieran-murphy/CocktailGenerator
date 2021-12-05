@@ -4,33 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch JSON from API and map lat lon</title>
+    <title>Cocktail Advisor</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
 
     <div class="container">
         <section class="one">
-            <h1>Where is the International Space Station?</h1>
+            <h1>What cocktail will you have today?</h1>
         </section>
         <section class="two">
-            <h1>Latitude: <span id="lat"></span></h1>
+            <h1><span id="name"></span></h1>
         </section>
         <section class="three">
-            <h1>Longitude: <span id="lon"></span></h1>
+            <h1>Ingredients</h1>
         </section>
+        <section class="four">
+            <h1><span id="ingOne"></span></h1>
+        </section>
+        <section class="five">
+            <h1><span id="ingTwo"></span></h1>
+        </section>
+        <section class="six">
+            <h1><span id="ingThree"></span></h1>
+        </section>
+        <section class="seven">
+            <h1><span id="ingFour"></span></h1>
+        </section>
+        <section class="eight">
+            <h1><span id="ingFive"></span></h1>
+        </section>
+        <section class="nine">
+            <h1>Instructions: <span id="instructions"></span></h1>
+        </section>
+        <section class="ten">
+            <a href="."><h1>Would you like another? </h1></a>
+        </section>
+        
         
     </div>
     
     <script>
-        const api_url = "https://api.wheretheiss.at/v1/satellites/25544";
+        const api_url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
         async function getISS() {
             const response = await fetch(api_url);
             const data = await response.json();
-            const { latitude, longitude } = data;
+            
+            const drinkName = data.drinks[0].strDrink;
+            const instructions = data.drinks[0].strInstructions;
+            const ingOne = data.drinks[0].strIngredient1;
+            const ingTwo = data.drinks[0].strIngredient2;
+            const ingThree = data.drinks[0].strIngredient3;
+            const ingFour = data.drinks[0].strIngredient4;
+            const ingFive = data.drinks[0].strIngredient5;
 
-            document.getElementById('lat').textContent = latitude;
-            document.getElementById('lon').textContent = longitude;
+            document.getElementById('name').textContent = drinkName;
+            document.getElementById('instructions').textContent = instructions;
+            document.getElementById('ingOne').textContent = ingOne;
+            document.getElementById('ingTwo').textContent = ingTwo;
+            document.getElementById('ingThree').textContent = ingThree;
+            document.getElementById('ingFour').textContent = ingFour;
+            document.getElementById('ingFive').textContent = ingFive;
+            
         }
         
         getISS();
