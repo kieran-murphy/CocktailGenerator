@@ -18,6 +18,7 @@ section {
     align-items: center;
     color: white;
     scroll-snap-align: start;
+    width: 80vw;
 }
 
 a {
